@@ -53,14 +53,16 @@ public class Sample5 {
         WebElement msg = driver.findElement(By.id("textForAlerts"));
         String expectedValue = "Why on earth have you agreed to it?!";
         String actualValue = msg.getText();
-        Assert.assertEquals(expectedValue, actualValue); }
-        //click on alert and use dismiss method and validate the message
+        Assert.assertEquals(expectedValue, actualValue);
+    }
+
+    //click on alert and use dismiss method and validate the message
     @Test
-            public void confirmationPopUpCancel() {
+    public void confirmationPopUpCancel() {
         WebElement toConfOrDenyBtn = driver.findElement(By.className("w3-teal"));
         toConfOrDenyBtn.click();
         Alert alert = driver.switchTo().alert();
-        alert.accept();
+        alert.dismiss();
         WebElement msg1 = driver.findElement(By.id("textForAlerts"));
         String expectedValue1 = "You have dared to deny me!!!";
         String actualValue1 = msg1.getText();
