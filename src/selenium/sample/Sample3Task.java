@@ -57,5 +57,4 @@ public class Sample3Task {
         Thread.sleep(2500);
         driver.quit();
     }
-
 }
