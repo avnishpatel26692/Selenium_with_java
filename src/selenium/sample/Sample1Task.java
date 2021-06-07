@@ -17,12 +17,21 @@ public class Sample1Task {
         System.setProperty("webdriver.chrome.driver", libWithDriversLocation + "chromedriver_91.exe");
         WebDriver driver = new ChromeDriver();
 
+        //open test homepage
+//        driver.get("https://google.com");
         driver.get("https://kristinek.github.io/site/");
 
-        System.out.println(driver.getTitle());
-        System.out.println(driver.getCurrentUrl());
+        driver.manage().timeouts().implicitlyWait(25, TimeUnit.SECONDS);
+        driver.manage().window().maximize();
 
-        //Sleep for 10 seconds
+        System.out.println(driver.findElement(By.id("h1")).getText());
+//        //get title of page
+        System.out.println(driver.getTitle());
+//
+//        //get URL of current page
+        System.out.println(driver.getCurrentUrl());
+//
+//        //Sleep for 10 seconds
         Thread.sleep(5000);
 
         //Close browser
