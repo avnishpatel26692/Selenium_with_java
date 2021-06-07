@@ -21,6 +21,7 @@ public class Sample1 {
 //        driver.get("https://google.com");
         driver.get("https://kristinek.github.io/site/");
 
+
         driver.manage().timeouts().implicitlyWait(25, TimeUnit.SECONDS);
         driver.manage().window().maximize();
 
