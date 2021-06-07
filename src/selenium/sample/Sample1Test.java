@@ -6,6 +6,7 @@ import org.openqa.selenium.chrome.ChromeDriver;
 
 public class Sample1Test {
     static String libWithDriversLocation = System.getProperty("user.dir") + "\\lib\\";
+
     @Test
     public void goToHomepage() throws Exception {
         System.setProperty("webdriver.chrome.driver", libWithDriversLocation + "chromedriver_91.exe");
