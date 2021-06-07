@@ -23,15 +23,14 @@ public class Sample5 {
     }
 
     @After
-    public void afterMethod() throws InterruptedException
-    {
+    public void afterMethod() throws InterruptedException {
         Thread.sleep(5000);
 
         driver.quit();
     }
 
     @Test
-    public void clickOnAlertButton(){
+    public void clickOnAlertButton() {
         WebElement toSummonAlertButton = driver.findElement(By.className("w3-red"));
         toSummonAlertButton.click();
         Alert alert = driver.switchTo().alert();
@@ -41,10 +40,10 @@ public class Sample5 {
         Assert.assertEquals(expectedValue, alertMessage);
 
 
-
     }
+
     @Test
-    public void clickOnOffAlertButton(){
+    public void clickOnOffAlertButton() {
         WebElement toConfirmDenyButton = driver.findElement(By.className("w3-teal"));
         toConfirmDenyButton.click();
         Alert alert = driver.switchTo().alert();
@@ -57,7 +56,7 @@ public class Sample5 {
     }
 
     @Test
-    public void enterTextAlert(){
+    public void enterTextAlert() {
         String text = "1234";
         WebElement toEnterAnumber = driver.findElement(By.className("w3-khaki"));
         toEnterAnumber.click();
@@ -70,7 +69,7 @@ public class Sample5 {
     }
 
     @Test
-    public void popUpMessage(){
+    public void popUpMessage() {
         WebElement toGoAlertedPage = driver.findElement(By.className("w3-blue"));
         toGoAlertedPage.click();
         Alert alert = driver.switchTo().alert();
@@ -82,8 +81,9 @@ public class Sample5 {
         String actualResult = pageAlerted.getText();
         Assert.assertTrue(actualResult.contains(expectedResult));
     }
+
     @Test
-    public void popUpMsgDecline(){
+    public void popUpMsgDecline() {
         WebElement toGoAlertedPage = driver.findElement(By.className("w3-blue"));
         toGoAlertedPage.click();
         Alert alert = driver.switchTo().alert();
@@ -93,5 +93,18 @@ public class Sample5 {
         String expectedResult = "So you desided to say? Good!";
         String actualResult = pageStay.getText();
         Assert.assertTrue(actualResult.contains(expectedResult));
+    }
+
+    @Test
+    public void enterNoTextAlert() {
+        String text = "";
+        WebElement toEnterAnumber = driver.findElement(By.className("w3-khaki"));
+        toEnterAnumber.click();
+        Alert alert = driver.switchTo().alert();
+        alert.sendKeys(text);
+        alert.accept();
+        WebElement message = driver.findElement(By.id("textForAlerts"));
+        String actualValue = message.getText();
+        Assert.assertTrue(actualValue.contains(text));
     }
 }
