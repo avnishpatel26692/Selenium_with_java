@@ -47,8 +47,9 @@ public class Sample4 {
     {
         WebElement showButton = driver.findElement(By.id("show_text"));
         WebElement hideButton = driver.findElement(By.name("hide_text"));
-        showButton.click();
         WebElement textLabel = driver.findElement(By.id("show_me"));
+
+        showButton.click();
 
         //validating Element is displayed on screen
         Assert.assertTrue(textLabel.isDisplayed());
