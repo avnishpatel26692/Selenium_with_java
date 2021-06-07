@@ -63,15 +63,14 @@ public class Sample4 {
     public void enterTextInTextBox()
     {
         WebElement textBox = driver.findElement(By.name("vfb-5"));
+        String message = "Welcome to Automation";
         textBox.clear(); //clear the field value
-        textBox.sendKeys("Automation Testing");
+        textBox.sendKeys(message);
         WebElement resultButton = driver.findElement(By.id("result_button_text"));
         resultButton.click();
         WebElement resultText = driver.findElement(By.id("result_text"));
-        String expectedValue = "Automation Testing";
         String actualValue = resultText.getText();
-
-        Assert.assertTrue(actualValue.contains(expectedValue));
+        Assert.assertTrue(actualValue.contains(message));
     }
 
 
