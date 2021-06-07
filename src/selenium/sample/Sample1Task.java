@@ -18,7 +18,6 @@ public class Sample1Task {
         WebDriver driver = new ChromeDriver();
 
         //open test homepage
-//        driver.get("https://google.com");
         driver.get("https://kristinek.github.io/site/");
 
         driver.manage().timeouts().implicitlyWait(25, TimeUnit.SECONDS);
