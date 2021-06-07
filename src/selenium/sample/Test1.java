@@ -72,8 +72,9 @@ public class Test1 {
         Alert alert = driver.switchTo().alert();
         String alertMsg = alert.getText();
         alert.dismiss(); // alert.accept();
-        String expectedValue = "Square root of 64 is 8.00";
-        Assert.assertEquals(expectedValue, alertMsg);
+        String expectedValue = "8.00";
+        //Assert.assertEquals(expectedValue, alertMsg);
+        Assert.assertTrue(alertMsg.contains(expectedValue));
     }
 
     @Test
@@ -88,11 +89,8 @@ public class Test1 {
         Alert alert = driver.switchTo().alert();
         String alertMsg = alert.getText();
         alert.dismiss(); // alert.accept();
-        String expectedValue = "Square root of 65 is 8.06";
-        Assert.assertEquals(expectedValue, alertMsg);
+        String expectedValue = "8.06";
+        //Assert.assertEquals(expectedValue, alertMsg);
+        Assert.assertTrue(alertMsg.contains(expectedValue));
     }
-
-
-
-
 }
