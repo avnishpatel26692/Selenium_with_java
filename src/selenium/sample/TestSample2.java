@@ -29,11 +29,12 @@ public class TestSample2 {
 
         System.out.println(driver.findElement(By.id("nonStandartText")).getText());
         System.out.println(driver.findElement(By.name("randomButton1")).getText());
-        System.out.println(driver.findElement(By.className("text_unbelievable")).getText());
+        System.out.println(driver.findElement(By.className("unbelievable")).getText());
 
         List<WebElement> pTag = driver.findElements(By.tagName("p"));
         System.out.println(pTag.size());
-        System.out.println(pTag.get(1).getText());
+        System.out.println(pTag.get(0).getText());
+        System.out.println(pTag.get(10).getText());
 
 //        //get title of page
         System.out.println(driver.getTitle());
