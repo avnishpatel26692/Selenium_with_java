@@ -6,10 +6,11 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.concurrent.TimeUnit;
 
-public class Sample2Task {
+public class Sample2 {
     static String libWithDriversLocation = System.getProperty("user.dir") + "\\lib\\";
 
     @Test
@@ -31,10 +32,12 @@ public class Sample2Task {
                 ""));
         List<WebElement> pTag = driver.findElements(By.tagName("p"));
 
-//        //Sleep for 10 seconds
+//        //Sleep for 5 seconds
         Thread.sleep(5000);
 
         //Close browser
         driver.quit();
     }
+
+
 }
