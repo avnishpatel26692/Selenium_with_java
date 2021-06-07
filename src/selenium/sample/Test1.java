@@ -44,6 +44,7 @@ public class Test1 {
         WebElement resultText = driver.findElement(By.id("ch1_error"));
         String expectedValue = "Number is too small";
         String actualValue = resultText.getText();
+        Assert.assertEquals(expectedValue, actualValue); //compare expected and actual results
     }
 
     @Test
@@ -58,6 +59,7 @@ public class Test1 {
         WebElement resultText = driver.findElement(By.id("ch1_error"));
         String expectedValue = "Number is too big";
         String actualValue = resultText.getText();
+        Assert.assertEquals(expectedValue, actualValue); //compare expected and actual results
     }
 
     @Test
