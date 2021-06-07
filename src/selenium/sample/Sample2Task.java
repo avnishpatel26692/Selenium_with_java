@@ -36,6 +36,7 @@ public class Sample2Task {
 
 //         By list
         List<WebElement> pTag = driver.findElements(By.tagName("p"));
+        System.out.println(pTag.size());
 
 
 //       Sets seconds how long the browsers is opened. Here = 5 sec
