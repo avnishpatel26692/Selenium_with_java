@@ -37,9 +37,9 @@ public class Sample3 {
     @Test
     public void assertTrueExample() {
         WebElement button2 = driver.findElement(By.name("randomButton2"));
-        String expectedValue = "This is also a button";
+        String expectedValue = "This is  button";
         String actualValue = button2.getAttribute("value");
-        Assert.assertEquals("Value is true ", expectedValue, actualValue);
+        Assert.assertEquals("Value is False ", expectedValue, actualValue);
     }
 
     @Test
