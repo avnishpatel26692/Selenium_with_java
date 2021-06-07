@@ -68,4 +68,30 @@ public class Sample5 {
         String actualValue = message.getText();
         Assert.assertTrue(actualValue.contains(text));
     }
+
+    @Test
+    public void popUpMessage(){
+        WebElement toGoAlertedPage = driver.findElement(By.className("w3-blue"));
+        toGoAlertedPage.click();
+        Alert alert = driver.switchTo().alert();
+        alert.accept();
+        alert.accept();
+        WebElement pageAlerted = driver.findElement(By.id("heading"));
+        pageAlerted.getText();
+        String expectedResult = "This page is alerted";
+        String actualResult = pageAlerted.getText();
+        Assert.assertTrue(actualResult.contains(expectedResult));
+    }
+    @Test
+    public void popUpMsgDecline(){
+        WebElement toGoAlertedPage = driver.findElement(By.className("w3-blue"));
+        toGoAlertedPage.click();
+        Alert alert = driver.switchTo().alert();
+        alert.dismiss();
+        WebElement pageStay = driver.findElement(By.id("textForAlerts"));
+        pageStay.getText();
+        String expectedResult = "So you desided to say? Good!";
+        String actualResult = pageStay.getText();
+        Assert.assertTrue(actualResult.contains(expectedResult));
+    }
 }
