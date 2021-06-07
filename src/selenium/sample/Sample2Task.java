@@ -42,6 +42,23 @@ public class Sample2Task {
         System.out.println("Value: " + driver.findElement(By.className("text")).getAttribute("value"));
         System.out.println("Class: " + driver.findElement(By.className("text")).getAttribute("class"));
 
+        //Find elements by tagname
+        int i = 0;
+        System.out.println();
+        System.out.println("List of elements found by tagname \"p\":");
+        List<WebElement> pTag = driver.findElements(By.tagName("p"));
+
+        for (WebElement p : pTag) {
+            System.out.println();
+            System.out.println((i + 1) + ")");
+            System.out.println("Text: " + p.getText());
+            System.out.println("Value: " + p.getAttribute("value"));
+            System.out.println("Class: " + p.getAttribute("class"));
+            i++;
+        }
+
+        System.out.println();
+        System.out.println("Number of elements found py tagname \"p\": " + pTag.size());
 
 //        //Sleep for 10 seconds
         Thread.sleep(5000);
