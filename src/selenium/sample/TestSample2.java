@@ -21,6 +21,7 @@ public class TestSample2 {
         //open test homepage
         driver.get("https://kristinek.github.io/site/examples/locators");
 //        driver.get("https://kristinek.github.io/site/");
+//        driver.get("https://kristinek.github.io/site/examples/actions");
 
 
         driver.manage().timeouts().implicitlyWait(25, TimeUnit.SECONDS);

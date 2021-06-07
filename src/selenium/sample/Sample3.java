@@ -20,7 +20,8 @@ public class Sample3 {
     {
         System.setProperty("webdriver.chrome.driver", libWithDriversLocation + "chromedriver_91.exe");
         driver = new ChromeDriver();
-        driver.get("https://kristinek.github.io/site/examples/locators");
+        //driver.get("https://kristinek.github.io/site/examples/locators");
+        driver.get("https://kristinek.github.io/site/examples/actions");
         driver.manage().window().maximize();
     }
 
