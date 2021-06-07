@@ -7,7 +7,7 @@ import org.openqa.selenium.chrome.ChromeDriver;
 
 import java.util.concurrent.TimeUnit;
 
-public class TaskSample {
+public class Sample1Task {
     static String libWithDriversLocation = System.getProperty("user.dir") + "\\lib\\";
 
     @Test
