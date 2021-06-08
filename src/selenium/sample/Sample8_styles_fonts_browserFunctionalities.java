@@ -138,6 +138,7 @@ public class Sample8_styles_fonts_browserFunctionalities {
         driver.navigate().to("https://kristinek.github.io/site/examples/actions");
         Thread.sleep(2500);
         driver.navigate().back();
+        driver.manage().window().maximize();
         Thread.sleep(2500);
         driver.manage().window().setSize(new Dimension(800, 600));
         driver.navigate().forward();
@@ -145,7 +146,10 @@ public class Sample8_styles_fonts_browserFunctionalities {
         driver.navigate().to("https://kristinek.github.io/site/examples/alerts_popups");
         Thread.sleep(2500);
         driver.navigate().back();
+        driver.manage().window().fullscreen();
+        Thread.sleep(2500);
         driver.navigate().back();
+        driver.manage().window().maximize();
         driver.navigate().refresh();
     }
 }
