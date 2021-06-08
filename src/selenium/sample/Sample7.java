@@ -112,7 +112,8 @@ public class Sample7 {
             btn.click();
             Assert.assertTrue(btn.isSelected());
         }
-        WebElement option2 = driver.findElement(By.cssSelector(".w3-check[value='Option 2'][type=radio']"));
+//        WebElement option2 = driver.findElement(By.cssSelector(".w3-check[value='Option 2'][type=radio']"));
+        WebElement option2 = driver.findElement(By.cssSelector("input[id='vfb-7-2'"));
         Thread.sleep(2000);
         Assert.assertFalse(option2.isSelected());
         option2.click();
@@ -159,24 +160,36 @@ public class Sample7 {
         Assert.assertEquals(result, actualResults);
     }
 
-    //does not work correct, still looking for mistake
     @Test
     public void chooseDateViaCalendar() throws InterruptedException {
         Calendar cal = Calendar.getInstance();
         cal.add(Calendar.MONTH, -5);
-        String result = new SimpleDateFormat("MM/15/yyyy").format(cal.getTime());
+        String result = new SimpleDateFormat("MM/11/yyyy").format(cal.getTime());
 
         WebElement dateBox = driver.findElement(By.xpath("//input[@id='vfb-8']"));
         dateBox.getAttribute("value");
         dateBox.click();
-        for (int i = 0; i < 10; i++) {
+        for (int i = 0; i < 5; i++) {
             Thread.sleep(500);
             WebElement previousMonthBtn = driver.findElement(By.xpath("//span[text()='Prev']"));
             previousMonthBtn.click();
         }
-        WebElement date11 = driver.findElement(By.xpath("//a[text()='15']"));
+        WebElement date11 = driver.findElement(By.xpath("//a[text()='11']"));
         date11.click();
         String actualResults = dateBox.getAttribute("value");
+        Assert.assertEquals(result, actualResults);
+    }
+
+    @Test
+    public void chooseDateViaTextBox() {
+        Calendar cal = Calendar.getInstance();
+        cal.add(Calendar.MONTH, -10);
+        String result = new SimpleDateFormat("MM/15/yyyy").format(cal.getTime());
+        WebElement datePickerTxtBox = driver.findElement(By.xpath("//input[@id='vfb-8']"));
+        datePickerTxtBox.click();
+        WebElement date15 = driver.findElement(By.xpath("//a[text()='15']"));
+        date15.click();
+        String actualResults = datePickerTxtBox.getAttribute("value");
         Assert.assertEquals(result, actualResults);
     }
 }
