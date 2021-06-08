@@ -63,6 +63,7 @@ public class ActivityDayThreeSecondTask {
         System.out.println(element2.getCssValue("font-family"));
         System.out.println(element2.getCssValue("background-color"));
         Assert.assertEquals("rgba(76, 175, 80, 1)",element2.getCssValue("background-color") );
+        Assert.assertEquals("Verdana, sans-serif",element2.getCssValue("font-family") );
             }
 
 
@@ -75,6 +76,7 @@ public class ActivityDayThreeSecondTask {
         System.out.println(element2.getCssValue("font-family"));
         System.out.println(element2.getCssValue("background-color"));
         Assert.assertEquals("rgba(33, 150, 243, 1)",element2.getCssValue("background-color") );
+        Assert.assertEquals("Verdana, sans-serif",element2.getCssValue("font-family") );
     }
 
     @Test
@@ -86,6 +88,7 @@ public class ActivityDayThreeSecondTask {
         System.out.println(element2.getCssValue("font-family"));
         System.out.println(element2.getCssValue("background-color"));
         Assert.assertEquals("rgba(233, 30, 99, 1)",element2.getCssValue("background-color") );
+        Assert.assertEquals("Verdana, sans-serif",element2.getCssValue("font-family") );
     }
     @Test
     public void verifyBackgroundColorEmpty() {
@@ -94,7 +97,7 @@ public class ActivityDayThreeSecondTask {
         Assert.assertEquals("15px", actualFontSize);
         System.out.println(element2.getCssValue("font-family"));
         System.out.println(element2.getCssValue("background-color"));
-        Assert.assertEquals("rgba(0, 0, 0, 0)",element2.getCssValue("background-color") );
+        Assert.assertEquals("",element2.getCssValue("font-family") );
     }
 
 }
