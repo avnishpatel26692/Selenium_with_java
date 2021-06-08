@@ -36,7 +36,8 @@ public class Sample6 {
         WebElement element1 = driver.findElement(By.xpath("//div[@id='nonStandartText']/*[contains(@class,'text amazing')]"));
         System.out.println(element1.getText());
 
-        //2nd example
+        WebElement element3 = driver.findElement(By.xpath("//p[@class='text' and @id='dummy']"));
+        System.out.println(element3.getText());
     }
 
     @Test
@@ -45,6 +46,7 @@ public class Sample6 {
         WebElement element2 = driver.findElement(By.cssSelector("div#nonStandartText > .amazing"));
         System.out.println(element2.getText());
 
-        //2nd example
+        WebElement element4 = driver.findElement(By.cssSelector(".text#dummy"));
+        System.out.println(element4.getText());
     }
 }
