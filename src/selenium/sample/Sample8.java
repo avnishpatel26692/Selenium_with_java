@@ -5,6 +5,7 @@ import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
 import org.openqa.selenium.By;
+import org.openqa.selenium.Dimension;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
@@ -49,5 +50,18 @@ public class Sample8 {
         WebElement luckParagraph7Label = driver.findElement(By.xpath("//p[text()='lucky paragraph 7']"));
         String actualValue = luckParagraph7Label.getCssValue("background-color");
         Assert.assertEquals("rgba(233, 30, 99, 1)", actualValue);
+    }
+
+    @Test
+    public void browserFunctionalities() throws InterruptedException {
+        Thread.sleep(2500);
+        driver.navigate().to("https://kristinek.github.io/site/examples/locators");
+        Thread.sleep(2500);
+        driver.navigate().back();
+        Thread.sleep(2500);
+        driver.manage().window().setSize(new Dimension(800, 600));
+        driver.navigate().forward();
+        Thread.sleep(2500);
+        driver.navigate().refresh();
     }
 }
