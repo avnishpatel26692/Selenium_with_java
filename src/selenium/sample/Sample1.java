@@ -5,6 +5,7 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
+import org.openqa.selenium.ie.InternetExplorerDriver;
 
 import java.util.concurrent.TimeUnit;
 
@@ -18,6 +19,8 @@ public class Sample1 {
     public void goToHomepage() throws Exception {
         //define driver
         System.setProperty("webdriver.chrome.driver", libWithDriversLocation + "chromedriver_91.exe");
+        //System.setProperty("webdriver.gecko.driver", libWithDriversLocation + "geckodriver.exe");
+        //System.setProperty("webdriver.ie.driver", libWithDriversLocation + "IEDriverServer.exe");
 
         //define driver for mac os
         //System.setProperty("webdriver.chrome.driver", libWithDriversLocation + "chromedriver");
