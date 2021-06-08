@@ -10,13 +10,13 @@ import org.openqa.selenium.chrome.ChromeDriver;
 
 public class Sample6 {
 
-    static String libWithDriversLocation = System.getProperty("user.dir") + "\\lib\\";
+    static String libWithDriversLocation = System.getProperty("user.dir") + "//lib//";
     WebDriver driver;
 
     @Before
     public void beforeMethod()
     {
-        System.setProperty("webdriver.chrome.driver", libWithDriversLocation + "chromedriver_91.exe");
+        System.setProperty("webdriver.chrome.driver", libWithDriversLocation + "chromedriver_91");
         driver = new ChromeDriver();
         driver.get("https://kristinek.github.io/site/examples/locators");
         driver.manage().window().maximize();
@@ -36,10 +36,9 @@ public class Sample6 {
         WebElement element1 = driver.findElement(By.xpath("//div[@id='nonStandartText']/*[contains(@class,'text amazing')]"));
         System.out.println(element1.getText());
 
-        WebElement element3 = driver.findElement(By.xpath("//p[@class='text' and @id='dummy']"));
-        System.out.println(element3.getText());
-
         //2nd example
+        WebElement element2 = driver.findElement(By.xpath("//div[@id='nonStandartText']/p[1]"));
+        System.out.println(element2.getText());
     }
 
     @Test
@@ -48,8 +47,8 @@ public class Sample6 {
         WebElement element2 = driver.findElement(By.cssSelector("div#nonStandartText > .amazing"));
         System.out.println(element2.getText());
 
-        WebElement element4 = driver.findElement(By.cssSelector(". text#dummy"));
-
         //2nd example
+        WebElement element3 = driver.findElement(By.cssSelector("h2#heading_1"));
+        System.out.println(element3.getText());
     }
 }

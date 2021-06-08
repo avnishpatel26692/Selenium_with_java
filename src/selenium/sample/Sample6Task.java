@@ -37,6 +37,8 @@ public class Sample6Task {
         System.out.println(element1.getText());
 
         //2nd example
+        WebElement element2 = driver.findElement(By.xpath("//div[@id='nonStandartText']/p[1]"));
+        System.out.println(element2.getText());
     }
 
     @Test
@@ -45,7 +47,8 @@ public class Sample6Task {
         WebElement element2 = driver.findElement(By.cssSelector("div#nonStandartText > .amazing"));
         System.out.println(element2.getText());
 
-
         //2nd example
+        WebElement element3 = driver.findElement(By.cssSelector("h2#heading_1"));
+        System.out.println(element3.getText());
     }
 }
