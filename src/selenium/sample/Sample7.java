@@ -1,9 +1,7 @@
 package selenium.sample;
 
-import org.junit.After;
-import org.junit.Assert;
-import org.junit.Before;
-import org.junit.Test;
+import org.junit.*;
+import org.junit.runners.MethodSorters;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
@@ -12,7 +10,7 @@ import org.openqa.selenium.chrome.ChromeDriver;
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.List;
-
+@FixMethodOrder(MethodSorters.NAME_ASCENDING)
 public class Sample7 {
     static String libWithDriversLocation = System.getProperty("user.dir") + "\\lib\\";
     WebDriver driver;
@@ -77,18 +75,19 @@ public class Sample7 {
     }
     @Test
     public void chooseDateViaTextBox(){
-        Calendar cal = Calendar.getInstance();  //    get today date
+        Calendar cal = Calendar.getInstance();
         cal.add(Calendar.MONTH, -10);
-        String result = new SimpleDateFormat("12/15/2014").format(cal.getTime());  // 08/15/2020
+        String result = new SimpleDateFormat("MM/15/yyyy").format(cal.getTime());
 
         WebElement dateTextBox = driver.findElement(By.xpath("//input[@id='vfb-8']"));
         dateTextBox.click();
-        dateTextBox.sendKeys(result);
+        dateTextBox.sendKeys("12/15/2014");
 
         WebElement date15 = driver.findElement(By.xpath("//a[text()='15']"));
         date15.click();
+        String expectedResult = "12/15/2014";
         String actualResults = dateTextBox.getAttribute("value");
-        Assert.assertEquals(result,actualResults);
+        Assert.assertEquals(expectedResult, actualResults);
 
     }
 }
