@@ -8,6 +8,11 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.support.ui.Select;
+
+import java.text.SimpleDateFormat;
+import java.util.Calendar;
+import java.util.List;
 
 public class Sample4 {
 
@@ -15,8 +20,7 @@ public class Sample4 {
     WebDriver driver;
 
     @Before
-    public void beforeMethod()
-    {
+    public void beforeMethod() {
         System.setProperty("webdriver.chrome.driver", libWithDriversLocation + "chromedriver_91.exe");
         driver = new ChromeDriver();
         driver.get("https://kristinek.github.io/site/examples/actions");
@@ -32,8 +36,7 @@ public class Sample4 {
     }
 
     @Test
-    public void clickALink()
-    {
+    public void clickALink() {
         WebElement link1 = driver.findElement(By.id("link1"));
         link1.click();
         WebElement linkPage1Label = driver.findElement(By.id("h1"));
@@ -43,8 +46,7 @@ public class Sample4 {
     }
 
     @Test
-    public void clickOnButton()
-    {
+    public void clickOnButton() {
         WebElement showButton = driver.findElement(By.id("show_text"));
         WebElement hideButton = driver.findElement(By.name("hide_text"));
         showButton.click();
@@ -60,18 +62,105 @@ public class Sample4 {
     }
 
     @Test
-    public void enterTextInTextBox()
-    {
-        WebElement textBox = driver.findElement(By.name("vfb-5"));
-        textBox.clear(); //clear the field value
-        textBox.sendKeys("Automation Testing");
-        WebElement resultButton = driver.findElement(By.id("result_button_text"));
-        resultButton.click();
-        WebElement resultText = driver.findElement(By.id("result_text"));
-        String expectedValue = "Automation Testing";
-        String actualValue = resultText.getText();
+    public void clickOnCheckbox() throws InterruptedException {
+        WebElement checkbox1 = driver.findElement(By.xpath("//input[@id='vfb-6-0']"));
+        checkbox1.click();
+        Assert.assertTrue(checkbox1.isSelected());
+        Thread.sleep(2000);
+        checkbox1.click();
+        Assert.assertFalse(checkbox1.isSelected());
+        Thread.sleep(2000);
 
-        Assert.assertTrue(actualValue.contains(expectedValue));
+        WebElement checkbox2 = driver.findElement(By.cssSelector("input#vfb-6-1"));
+        checkbox2.click();
+        Assert.assertTrue(checkbox2.isSelected());
+        Thread.sleep(2000);
+        checkbox2.click();
+        Assert.assertFalse(checkbox2.isSelected());
+
+        WebElement checkbox3 = driver.findElement(By.cssSelector("input#vfb-6-2"));
+        checkbox3.click();
+        Assert.assertTrue(checkbox3.isSelected());
+        Thread.sleep(2000);
+        checkbox3.click();
+        Assert.assertFalse(checkbox3.isSelected());
+    }
+
+    @Test
+    public void selectingCheckboxes() throws InterruptedException {
+        List<WebElement> checkboxes = driver.findElements(By.cssSelector("input[type='checkbox']"));
+        for (WebElement elementName : checkboxes) //Enhanced for loop
+        {
+            Assert.assertFalse(elementName.isSelected());
+            elementName.click();
+            Thread.sleep(2000);
+            Assert.assertTrue(elementName.isSelected());
+            elementName.click();
+            Assert.assertFalse(elementName.isSelected());
+            Thread.sleep(2000);
+        }
+    }
+
+    @Test
+    public void clickOnRadioBtn() {
+        WebElement radioBtn1 = driver.findElement(By.xpath("//input[@name='vfb-7' and @value='Option 1']"));
+        WebElement radioBtn2 = driver.findElement(By.cssSelector("input[name='vfb-7'][value='Option 2']"));
+        radioBtn1.click();
+        Assert.assertTrue(radioBtn1.isSelected());
+        radioBtn2.click();
+        Assert.assertTrue(radioBtn2.isSelected());
+        Assert.assertFalse(radioBtn1.isSelected());
+    }
+
+    @Test
+    public void selectRadioButtons() throws InterruptedException {
+        List<WebElement> radioBtns = driver.findElements(By.xpath("//input[@type='radio']"));
+        for (WebElement radio : radioBtns) {
+            Assert.assertFalse(radio.isSelected());
+            radio.click();
+            Thread.sleep(2000);
+            Assert.assertTrue(radio.isSelected());
+        }
+    }
+
+    @Test
+    public void selectValueFromDropdown() throws InterruptedException {
+        WebElement dropDownBox = driver.findElement(By.cssSelector("select#vfb-12"));
+        Select dropdownSelect = new Select(dropDownBox);
+        Thread.sleep(2000);
+        // Select by Visible text
+        dropdownSelect.selectByVisibleText("Option 2");
+        System.out.println(dropdownSelect.getFirstSelectedOption().getText());
+        Thread.sleep(2000);
+
+        //Select by Value
+        dropdownSelect.selectByValue("value3");
+        System.out.println(dropdownSelect.getFirstSelectedOption().getText());
+        Thread.sleep(2000);
+
+        //Select by index
+        dropdownSelect.selectByIndex(1);
+        System.out.println(dropdownSelect.getFirstSelectedOption().getText());
+        Thread.sleep(2000);
+    }
+
+    @Test
+    public void selectDate() throws InterruptedException {
+        Calendar cal = Calendar.getInstance();  //    get today date
+        cal.add(Calendar.MONTH, -10);
+        String result = new SimpleDateFormat("MM/15/yyyy").format(cal.getTime());  // 08/15/2020
+
+        WebElement datePickerTxtBox = driver.findElement(By.xpath("//input[@id='vfb-8']"));
+        datePickerTxtBox.click();
+        for (int i = 0; i < 10; i++) {
+            Thread.sleep(500);
+            WebElement previousMonthBtn = driver.findElement(By.xpath("//span[text()='Prev']"));
+            previousMonthBtn.click();
+        }
+        WebElement date15 = driver.findElement(By.xpath("//a[text()='15']"));
+        date15.click();
+        String actualResults = datePickerTxtBox.getAttribute("value");
+        Assert.assertEquals(result, actualResults);
     }
 
 
