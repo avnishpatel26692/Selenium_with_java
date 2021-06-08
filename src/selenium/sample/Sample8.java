@@ -62,15 +62,6 @@ public class Sample8 {
         driver.navigate().refresh();
     }
 
-    @After
-    public void afterMethod() throws InterruptedException {
-        //Sleep for 10 seconds
-        Thread.sleep(5000);
-
-        //Close browser
-        driver.quit();
-    }
-
     @Test
     public void verifyParagraph1() {
         WebElement Paragraph1Label = driver.findElement(By.xpath("//p[text()='paragraph 1']"));
@@ -124,5 +115,14 @@ public class Sample8 {
         Assert.assertEquals("Verdana, sans-serif", actualFontFamily);
         String actualFontSize = luckyParagraph7Label.getCssValue("font-size");
         Assert.assertEquals("15px", actualFontSize);
+    }
+
+    @After
+    public void afterMethod() throws InterruptedException {
+        //Sleep for 10 seconds
+        Thread.sleep(5000);
+
+        //Close browser
+        driver.quit();
     }
 }
