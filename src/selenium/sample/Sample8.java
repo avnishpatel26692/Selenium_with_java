@@ -93,10 +93,11 @@ public class Sample8 {
         Assert.assertEquals("Verdana, sans-serif", actualFontFamily);
         String actualFontSize = luckyParagraph4Label.getCssValue("font-size");
         Assert.assertEquals("15px", actualFontSize);
+        System.out.println(luckyParagraph4Label.getAttribute("class"));
     }
 
     @Test
-    public void verifyParagraph6BGColor() {
+    public void verifyParagraph6() {
         WebElement coolParagraph6Label = driver.findElement(By.xpath("//p[text()='cool paragraph 6']"));
         String actualValue = coolParagraph6Label.getCssValue("background-color");
         Assert.assertEquals("rgba(33, 150, 243, 1)", actualValue);
@@ -104,10 +105,11 @@ public class Sample8 {
         Assert.assertEquals("Verdana, sans-serif", actualFontFamily);
         String actualFontSize = coolParagraph6Label.getCssValue("font-size");
         Assert.assertEquals("15px", actualFontSize);
+        System.out.println(coolParagraph6Label.getAttribute("class"));
     }
 
     @Test
-    public void verifyParagraph7BGColor() {
+    public void verifyParagraph7() {
         WebElement luckyParagraph7Label = driver.findElement(By.xpath("//p[text()='lucky paragraph 7']"));
         String actualValue = luckyParagraph7Label.getCssValue("background-color");
         Assert.assertEquals("rgba(233, 30, 99, 1)", actualValue);
