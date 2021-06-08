@@ -63,7 +63,7 @@ public class Sample6Task {
 
     @Test
     public void findCSSSelectorByName3() {
-        WebElement element5 = driver.findElement(By.cssSelector("")); // fill the css path
+        WebElement element5 = driver.findElement(By.cssSelector("div#test2>p.Test"));
         System.out.print(element5.getText());
     }
 
