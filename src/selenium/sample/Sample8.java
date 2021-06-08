@@ -64,6 +64,121 @@ public class Sample8 {
         driver.manage().window().setSize(new Dimension(800, 600));
         driver.manage().window().maximize();
 
+//        Test needs to be cover:
+//        validate for paragraph 1,2,4,6 & 7
+//
+//        Check Background color
+//        check font family
+//        check font size
+    }
+    @Test
+    public void paragraph1(){
+        WebElement paragraph1Check = driver.findElement(By.xpath("//*[@id='standartParagraph']/p[1]"));
+        String actualValue = paragraph1Check.getCssValue("background-color");
+        String actualValueFontSize = paragraph1Check.getCssValue("font-size");
+        String actualValueFontFamily = paragraph1Check.getCssValue("font-family");
+
+
+        String expectedResult = "rgba(0, 0, 0, 0)";
+        String expectedResultFontSize = "15px";
+        String expectedResultFontFamily = "Verdana, sans-serif";
+
+
+        System.out.println(paragraph1Check.getCssValue("background-color"));
+        System.out.println(paragraph1Check.getCssValue("font-size"));
+        System.out.println(paragraph1Check.getCssValue("font-family"));
+
+
+        Assert.assertEquals(actualValue, expectedResult);
+        Assert.assertEquals(actualValueFontSize, expectedResultFontSize);
+        Assert.assertEquals(actualValueFontFamily, expectedResultFontFamily);
+    }
+    @Test
+    public void paragraph2() {
+        WebElement paragraph2Check = driver.findElement(By.xpath("//*[@id='standartParagraph']/p[2]"));
+        String actualValue = paragraph2Check.getCssValue("background-color");
+        String actualValueFontSize = paragraph2Check.getCssValue("font-size");
+        String actualValueFontFamily = paragraph2Check.getCssValue("font-family");
+
+
+        String expectedResult = "rgba(76, 175, 80, 1)";
+        String expectedResultFontSize = "15px";
+        String expectedResultFontFamily = "Verdana, sans-serif";
+
+
+        System.out.println(paragraph2Check.getCssValue("background-color"));
+        System.out.println(paragraph2Check.getCssValue("font-size"));
+        System.out.println(paragraph2Check.getCssValue("font-family"));
+
+
+        Assert.assertEquals(actualValue, expectedResult);
+        Assert.assertEquals(actualValueFontSize, expectedResultFontSize);
+        Assert.assertEquals(actualValueFontFamily, expectedResultFontFamily);
+    }
+    @Test
+    public void paragraph4() {
+        WebElement paragraph4Check = driver.findElement(By.xpath("//*[@id='nonStandartParagraph']/p[1]"));
+        String actualValue = paragraph4Check.getCssValue("background-color");
+        String actualValueFontSize = paragraph4Check.getCssValue("font-size");
+        String actualValueFontFamily = paragraph4Check.getCssValue("font-family");
+
+
+        String expectedResult = "rgba(103, 58, 183, 1)";
+        String expectedResultFontSize = "15px";
+        String expectedResultFontFamily = "Verdana, sans-serif";
+
+
+        System.out.println(paragraph4Check.getCssValue("background-color"));
+        System.out.println(paragraph4Check.getCssValue("font-size"));
+        System.out.println(paragraph4Check.getCssValue("font-family"));
+
+
+        Assert.assertEquals(actualValue, expectedResult);
+        Assert.assertEquals(actualValueFontSize, expectedResultFontSize);
+        Assert.assertEquals(actualValueFontFamily, expectedResultFontFamily);
+    }
+    @Test
+    public void paragraph6() {
+        WebElement paragraph6Check = driver.findElement(By.cssSelector("#cool"));
+        String actualValue = paragraph6Check.getCssValue("background-color");
+        String actualValueFontSize = paragraph6Check.getCssValue("font-size");
+        String actualValueFontFamily = paragraph6Check.getCssValue("font-family");
+
+
+        String expectedResult = "rgba(33, 150, 243, 1)";
+        String expectedResultFontSize = "15px";
+        String expectedResultFontFamily = "Verdana, sans-serif";
+
+
+        System.out.println(paragraph6Check.getCssValue("background-color"));
+        System.out.println(paragraph6Check.getCssValue("font-size"));
+        System.out.println(paragraph6Check.getCssValue("font-family"));
+
+
+        Assert.assertEquals(actualValue, expectedResult);
+        Assert.assertEquals(actualValueFontSize, expectedResultFontSize);
+        Assert.assertEquals(actualValueFontFamily, expectedResultFontFamily);
+    }
+    @Test
+    public void paragraph7() {
+        WebElement paragraph7Check = driver.findElement(By.cssSelector("#nonStandartParagraph > p.paragraph.lucky.w3-pink"));
+        String actualValue = paragraph7Check.getCssValue("background-color");
+        String actualValueFontSize = paragraph7Check.getCssValue("font-size");
+        String actualValueFontFamily = paragraph7Check.getCssValue("font-family");
+
+        String expectedResult = "rgba(233, 30, 99, 1)";
+        String expectedResultFontSize = "15px";
+        String expectedResultFontFamily = "Verdana, sans-serif";
+
+        System.out.println(paragraph7Check.getCssValue("background-color"));
+        System.out.println(paragraph7Check.getCssValue("font-size"));
+        System.out.println(paragraph7Check.getCssValue("font-family"));
+
+        Assert.assertEquals(actualValue, expectedResult);
+        Assert.assertEquals(actualValueFontSize, expectedResultFontSize);
+        Assert.assertEquals(actualValueFontFamily, expectedResultFontFamily);
 
     }
+
+
 }
