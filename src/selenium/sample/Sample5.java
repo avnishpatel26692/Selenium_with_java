@@ -69,6 +69,5 @@ public class Sample5 {
         alert.accept();
         String actualValue = driver.findElement(By.id("textForAlerts")).getText();
         Assert.assertTrue(actualValue.contains(number));
-
     }
 }
