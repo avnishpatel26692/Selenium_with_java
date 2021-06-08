@@ -10,7 +10,7 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
 
-public class Sample8_Styles {
+public class Sample8_styles_fonts_browserFunctionalities {
 
     static String libWithDriversLocation = System.getProperty("user.dir") + "/lib/";
     WebDriver driver;
@@ -130,5 +130,22 @@ public class Sample8_Styles {
         Assert.assertEquals("rgba(0, 0, 0, 0)", actualBackground);
         Assert.assertEquals("Verdana, sans-serif", actualFontFamily);
         Assert.assertEquals("15px", actualFontSize);
+    }
+
+    @Test
+    public void browserFunctionalitiesTask() throws InterruptedException {
+        Thread.sleep(2500);
+        driver.navigate().to("https://kristinek.github.io/site/examples/actions");
+        Thread.sleep(2500);
+        driver.navigate().back();
+        Thread.sleep(2500);
+        driver.manage().window().setSize(new Dimension(800, 600));
+        driver.navigate().forward();
+        Thread.sleep(2500);
+        driver.navigate().to("https://kristinek.github.io/site/examples/alerts_popups");
+        Thread.sleep(2500);
+        driver.navigate().back();
+        driver.navigate().back();
+        driver.navigate().refresh();
     }
 }
