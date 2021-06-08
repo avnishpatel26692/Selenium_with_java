@@ -83,9 +83,22 @@ public class MyTask9 {
         Expected = "rgba(233, 30, 99, 1)";
         Assert.assertEquals(Expected,butt5.getCssValue("background-color"));
 
-
-
-
-
     }
+
+    @Test
+    public void Navigation () throws InterruptedException {
+            Thread.sleep(2500);
+            driver.get("https://kristinek.github.io/site/examples/actions");
+            Thread.sleep(2500);
+            driver.navigate().back();
+            Thread.sleep(2500);
+            driver.navigate().refresh();
+            Thread.sleep(2500);
+            driver.navigate().forward();
+            String Expected = "https://kristinek.github.io/site/examples/actions";
+            Assert.assertEquals(Expected,driver.getCurrentUrl());
+
+
+
+        }
 }
