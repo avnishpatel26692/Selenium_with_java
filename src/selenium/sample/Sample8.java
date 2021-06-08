@@ -1,14 +1,13 @@
 package selenium.sample;
 
-import org.junit.After;
-import org.junit.Assert;
-import org.junit.Before;
-import org.junit.Test;
+import org.junit.*;
+import org.junit.runners.MethodSorters;
 import org.openqa.selenium.By;
 import org.openqa.selenium.Dimension;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
+@FixMethodOrder(MethodSorters.NAME_ASCENDING)
 
 public class Sample8 {
     static String libWithDriversLocation = System.getProperty("user.dir") + "\\lib\\";
@@ -92,8 +91,14 @@ public class Sample8 {
         //  checking the  6th paragraph
         WebElement Paragraph6Label = driver.findElement(By.xpath("//p[text()='cool paragraph 6']"));
         String actualValue6 = Paragraph6Label.getCssValue("background-color");
-        System.out.println(actualValue6);
+        //System.out.println(actualValue6);
         Assert.assertEquals("rgba(33, 150, 243, 1)", actualValue6);
+
+        //  checking the  7th paragraph
+        WebElement Paragraph7Label = driver.findElement(By.xpath("//p[text()='lucky paragraph 7']"));
+        String actualValue7 = Paragraph7Label.getCssValue("background-color");
+        // System.out.println(actualValue7);
+        Assert.assertEquals("rgba(233, 30, 99, 1)", actualValue7);
 
     }
 
@@ -121,6 +126,11 @@ public class Sample8 {
         String actualValue6 = Paragraph6Label.getCssValue("font-family");
         System.out.println(actualValue6);
         Assert.assertEquals("Verdana, sans-serif", actualValue6);
+
+        WebElement Paragraph7Label = driver.findElement(By.xpath("//p[text()='lucky paragraph 7']"));
+        String actualValue7 = Paragraph7Label.getCssValue("font-family");
+        System.out.println(actualValue7);
+        Assert.assertEquals("Verdana, sans-serif", actualValue6);
     }
 
     @Test
@@ -147,6 +157,13 @@ public void checkFontSize()
         String actualValue6 = Paragraph6Label.getCssValue("font-size");
         //System.out.println(actualValue6);
         Assert.assertEquals("15px", actualValue6);
+
+        //check for paragraph 7
+        WebElement Paragraph7Label = driver.findElement(By.xpath("//p[text()='lucky paragraph 7']"));
+        String actualValue7 = Paragraph6Label.getCssValue("font-size");
+        //System.out.println(actualValue6);
+        Assert.assertEquals("15px", actualValue6);
+
     }
 
 }
