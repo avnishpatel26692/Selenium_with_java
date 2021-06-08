@@ -40,6 +40,13 @@ public class Sample6 {
 
        //2nd example
    }
+   @Test
+   public void findElementByCssName(){
+        WebElement element3 = driver.findElement(By.cssSelector("div#nonStandartText>.amazing"));
+        System.out.println(element3.getText());
+        WebElement element4 = driver.findElement(By.cssSelector("div#nonStandartText>.text#dummy"));
+        System.out.println(element4.getText());
+   }
 
     @After
     public void afterMethod() throws InterruptedException {
