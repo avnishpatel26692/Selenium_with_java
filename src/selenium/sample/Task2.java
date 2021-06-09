@@ -40,7 +40,7 @@ public class Task2 {
 public void initialFeedbackPage() {
     Assert.assertTrue(GiveFeedback.getName().isEmpty());
     Assert.assertTrue(GiveFeedback.getAge().isEmpty());
-    for (int i = 0; i <= 3; i++) {
+    for (int i = 0; i <= 3; i++)
         Assert.assertFalse(GiveFeedback.getCheckboxes(i));
         Assert.assertTrue(GiveFeedback.getRadioButtons(2));
 Assert.assertEquals("Choose your option",GiveFeedback.getDropDowns(1));
@@ -48,8 +48,8 @@ Assert.assertEquals("Choose your option",GiveFeedback.getDropDowns(1));
         Assert.assertEquals("rgba(33, 150, 243, 1)",backGroundColor);
         String letterColor = GiveFeedback.getSendBtn().getCssValue("color");
         Assert.assertEquals("rgba(255, 255, 255, 1)",letterColor);}
-    @Test
-    public void emptyFeedbackPage() {
+   @Test
+        public void emptyFeedbackPage() {
         Assert.assertTrue(GiveFeedback.getName().isEmpty());
         Assert.assertTrue(GiveFeedback.getAge().isEmpty());
         Assert.assertTrue(FeedBack.getName().isEmpty());
@@ -85,7 +85,7 @@ Assert.assertEquals("Choose your option",GiveFeedback.getDropDowns(1));
     Assert.assertEquals  ("rgb(255, 255, 255)",YesBtnBackground);
 
 
-}}}
+}}
 
 
 
