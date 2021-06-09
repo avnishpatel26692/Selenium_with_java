@@ -36,15 +36,17 @@ public class Task2 {
 
     @After
     public void afterMethod() throws InterruptedException {
+        //Sleep for 5.5 seconds
+        Thread.sleep(5500);
         //Close browser
         driver.quit();
     }
 
-    //2 PageObject class GiveFeedBackPO & FeedBackPO
 
     //1 Test
     @Test
     public void initialFeedbackPage() {
+
         //TODO:
         //check that all field are empty and no tick are clicked
         //"Don't know" is selected in "Genre"
@@ -61,10 +63,10 @@ public class Task2 {
             Assert.assertTrue(giveFeedBack.getRadioBtnStatus(2));
             Assert.assertEquals("Choose your option", giveFeedBack.getSelectedDropDownOption());
 
-            String backGroundColor = giveFeedBack.sendBtn().getCssValue("background-color");
+            String backGroundColor = GiveFeedBackPO.sendBtn().getCssValue("background-color");
             Assert.assertEquals("rgba(33, 150, 243, 1)", backGroundColor);
 
-            String letterColor = giveFeedBack.sendBtn().getCssValue("color");
+            String letterColor = GiveFeedBackPO.sendBtn().getCssValue("color");
             Assert.assertEquals("rgba(255, 255, 255, 1)", letterColor);
 
         }
@@ -111,11 +113,14 @@ public class Task2 {
 
             GiveFeedBackPO.setName("Elena");
             GiveFeedBackPO.setAge("31");
-            GiveFeedBackPO.selectCheckbox(1);
-            GiveFeedBackPO.selectRadioBtn(2);
+            GiveFeedBackPO.selectCheckbox(0);
+            GiveFeedBackPO.selectRadioBtn(1);
             GiveFeedBackPO.selectDropdownOption("Good");
             GiveFeedBackPO.setComment("Hello Wednesday");
+            String actualMessage4 = GiveFeedBackPO.getSelectedDropDownOption();
+            Assert.assertEquals("Good", actualMessage4);
             GiveFeedBackPO.sendBtn().click();
+
 
             String actualMessage = FeedBackPO.checkName();
             Assert.assertEquals("Elena", actualMessage);
@@ -125,8 +130,6 @@ public class Task2 {
             Assert.assertEquals("English", actualMessage2);
             String actualMessage3 = FeedBackPO.checkGender();
             Assert.assertEquals("female", actualMessage3);
-            String actualMessage4 = FeedBackPO.checkLikeUs();
-            Assert.assertEquals("Good", actualMessage4);
             String actualMessage5 = FeedBackPO.checkComment();
             Assert.assertEquals("Hello Wednesday", actualMessage5);
 
@@ -134,6 +137,7 @@ public class Task2 {
             Assert.assertEquals("rgba(255, 255, 255, 1)",FeedBackPO.getYesBtn().getCssValue("color"));
             Assert.assertEquals("rgba(244, 67, 54, 1)",FeedBackPO.getNoBtn().getCssValue("background-color"));
             Assert.assertEquals("rgba(255, 255, 255, 1)",FeedBackPO.getNoBtn().getCssValue("color"));
+
         }
 
 }

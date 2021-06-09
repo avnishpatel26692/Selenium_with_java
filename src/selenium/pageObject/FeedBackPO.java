@@ -1,8 +1,10 @@
 package selenium.pageObject;
 
+import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.How;
+import org.openqa.selenium.support.ui.Select;
 
 import java.awt.*;
 
@@ -19,7 +21,7 @@ public class FeedBackPO {
     @FindBy(how = How.ID, using = "gender")
     private static WebElement genderRadioBtn;
 
-    @FindBy(how = How.ID, using = "like_us")
+    @FindBy(how = How.ID, using = "option")
     private static WebElement howDoYouLikeUsDropDown;
 
     @FindBy(how = How.ID, using = "comment")

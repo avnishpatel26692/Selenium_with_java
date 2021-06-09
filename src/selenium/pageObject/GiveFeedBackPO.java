@@ -27,12 +27,21 @@ public class GiveFeedBackPO {
     @FindBy(how = How.NAME, using = "comment")
     private static WebElement commentTextbox;
 
-    @FindBy(how = How.CLASS_NAME, using = "w3-btn-block w3-blue w3-section")
+    @FindBy(how = How.XPATH, using = "//button[@type='submit']")
     private static WebElement sendBtn;
+
+    public static void setLanguageCheckbox(List<WebElement> languageCheckbox) {
+        GiveFeedBackPO.languageCheckbox = languageCheckbox;
+    }
+
+    public static void setGenderRadioBtn(List<WebElement> genderRadioBtn) {
+        GiveFeedBackPO.genderRadioBtn = genderRadioBtn;
+    }
 
     public String getName(){
         return nameTextbox.getText();
     }
+
     public static void setName(String name){
         nameTextbox.sendKeys(name);
     }
@@ -44,8 +53,8 @@ public class GiveFeedBackPO {
         ageTextbox.sendKeys(age);
     }
 
-    public boolean getLanguageCheckBoxStatus(int index)
-    { return languageCheckbox.get(index).isSelected();
+    public boolean getLanguageCheckBoxStatus(int index) {
+        return languageCheckbox.get(index).isSelected();
     }
 
     public static void selectCheckbox(int index) {
@@ -60,7 +69,7 @@ public class GiveFeedBackPO {
         genderRadioBtn.get(index).click();
     }
 
-    public String getSelectedDropDownOption() {
+    public static String getSelectedDropDownOption() {
         Select dropdown = new Select(howDoYouLikeUsDropDown);
         return dropdown.getFirstSelectedOption().getText();
     }
