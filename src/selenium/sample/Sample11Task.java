@@ -34,8 +34,8 @@ public class Sample11Task {
     @Test
     public void greenColorLoading() {
         WebElement greenColorButton = driver.findElement(By.xpath("//button[@id='start_green']"));
-        WebDriverWait wait = new WebDriverWait(driver, 15);
         greenColorButton.click();
+        WebDriverWait wait = new WebDriverWait(driver, 15);
 
         wait.until(ExpectedConditions.visibilityOfAllElementsLocatedBy(By.id("finish_green")));
     }
