@@ -1,0 +1,35 @@
+package selenium.pageObject;
+import org.openqa.selenium.support.FindBy;
+import org.openqa.selenium.support.How;
+import org.openqa.selenium.WebElement;
+public class agePage {
+
+    @FindBy(how = How.NAME, using = "name")
+    private WebElement nameTextBox;
+
+    @FindBy(how = How.ID, using = "age")
+    private WebElement ageTextBox;
+
+    @FindBy(how = How.XPATH, using = "//button[@id='submit']")
+    private WebElement submitButton;
+
+    @FindBy(how = How.CSS, using = "p.error")
+    private WebElement errorMessage;
+
+    public void enterName(String name) {
+        nameTextBox.clear();
+        nameTextBox.sendKeys(name);
+    }
+
+    public void enterAge(String age) {
+        ageTextBox.sendKeys(age);
+    }
+
+    public void clickOnSubmitButton() {
+        submitButton.click();
+    }
+
+    public String  getErrorMessage() {
+        return errorMessage.getText();
+    }
+}
