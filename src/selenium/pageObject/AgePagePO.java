@@ -4,7 +4,7 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.How;
 
-public class AgePagePO {
+public class AgePagePO{
 
     @FindBy(how = How.NAME, using = "name")
     private WebElement nameTextbox;
