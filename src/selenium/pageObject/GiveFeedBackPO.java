@@ -83,7 +83,7 @@ public class GiveFeedBackPO {
         return sendBtn;
     }
 
-    public void cliclOnSendBtn() {
+    public void clickOnSendBtn() {
         sendBtn.click();
     }
 

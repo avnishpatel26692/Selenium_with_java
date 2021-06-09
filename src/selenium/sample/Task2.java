@@ -69,22 +69,20 @@ public class Task2 {
         Assert.assertEquals("rgba(255, 255, 255, 1)", letterColor);
     }
 
-    //2 Test
-//    @Test
-//    public void emptyFeedbackPage() {
-//        //TODO:
-////         click "Send" without entering any data
-////         check fields are empty or null
-////         check button colors
-////         (green with white letter and red with white letters)
-//    }
+//    2 Test
+        //TODO:
+//         click "Send" without entering any data
+//         check fields are empty or null
+//         check button colors
+//         (green with white letter and red with white letters)
+
 
     @Test
 //     check fields are empty or null
 
 
     public void emptyFeedbackPage() {
-        giveFeedBackPO.cliclOnSendBtn();
+        giveFeedBackPO.clickOnSendBtn();
         Assert.assertTrue(feedBackPO.getName().isEmpty());
         Assert.assertTrue(feedBackPO.getAge().isEmpty());
         Assert.assertTrue(feedBackPO.getLanguage().isEmpty());
@@ -114,14 +112,58 @@ public class Task2 {
 
 
     //3 Test
-    @Test
-    public void feedbackPage() {
-        //TODO:
+
+    //TODO:
 //         fill the whole form, click "Send"
 //         check fields are filled correctly
 //         check button colors
 //         (green with white letter and red with white letters)
+
+    @Test
+    public void feedbackPage() {
+        giveFeedBackPO.setName("Mary");
+        giveFeedBackPO.setAge("23");
+        giveFeedBackPO.selectCheckbox(1);
+        giveFeedBackPO.selectRadioBtn(1);
+        giveFeedBackPO.selectDropdownOption("Why me?");
+        giveFeedBackPO.setComment("Cheesecake");
+        giveFeedBackPO.clickOnSendBtn();
+
+        String backGroundColorbtnbtnYes = feedBackPO.btnYes().getCssValue("background-color");
+        Assert.assertEquals("rgba(76, 175, 80, 1)", backGroundColorbtnbtnYes);
+
+        String letterColorbtnYes = feedBackPO.btnYes().getCssValue("color");
+        Assert.assertEquals("rgba(255, 255, 255, 1)", letterColorbtnYes);
+
+        String letterColorbtnNo = feedBackPO.btnNo().getCssValue("color");
+        Assert.assertEquals("rgba(255, 255, 255, 1)", letterColorbtnNo);
+
+        String backGroundColorbtnNo = feedBackPO.btnNo().getCssValue("background-color");
+        Assert.assertEquals("rgba(244, 67, 54, 1)", backGroundColorbtnNo);
+
+        //         check fields are filled correctly
+
+        Assert.assertEquals("Mary", feedBackPO.getName());
+        Assert.assertEquals("23", feedBackPO.getAge());
+        Assert.assertEquals("French", feedBackPO.getLanguage());
+        Assert.assertEquals("Why me?", feedBackPO.getSelectedDropDownOption());
+        Assert.assertEquals("Why me?", feedBackPO.getOption());
+        Assert.assertEquals("Cheesecake", feedBackPO.getComment());
+
+//        check button colors (green with white letter and red with white letters)
+
+
+        String yesButtonBackgroundColor = feedBackPO.btnYes().getCssValue("background-color");
+        Assert.assertEquals("rgba(76, 175, 80, 1)", yesButtonBackgroundColor);
+
+        String yesButtonLetterColor = feedBackPO.btnNo().getCssValue("color");
+        Assert.assertEquals("rgba(255, 255, 255, 1)", yesButtonLetterColor);
+
+        String noButtonBackgroundColor = feedBackPO.btnNo().getCssValue("background-color");
+        Assert.assertEquals("rgba(244, 67, 54, 1)", noButtonBackgroundColor);
+
+        String noButtonLetterColor = feedBackPO.btnNo().getCssValue("color");
+        Assert.assertEquals("rgba(255, 255, 255, 1)", noButtonLetterColor);
+
     }
-
-
 }
