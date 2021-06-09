@@ -74,7 +74,7 @@ public class Sample12 {
     }
 
     @Test
-    public void acenario5() {
+    public void scenario5() {
         agePage.enterName("ABC");
         agePage.enterAge("5");
         agePage.clickOnSubmitBtn();
