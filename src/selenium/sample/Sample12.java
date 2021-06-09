@@ -9,8 +9,8 @@ import org.openqa.selenium.*;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.support.PageFactory;
 
-import selenium.PageObject.AgePagePO;
-import selenium.PageObject.AgeSubmittedPO;
+import selenium.pageObject.AgePagePO;
+import selenium.pageObject.AgeSubmittedPO;
 
 
 public class Sample12 {

@@ -1,10 +1,10 @@
-package selenium.PageObject;
+package selenium.pageObject;
 
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.How;
 
-public class AgePagePO {
+public class AgePagePO extends HomePagePO {
 
     @FindBy(how = How.NAME, using = "name")
     private WebElement nameTextBox;
