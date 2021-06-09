@@ -16,7 +16,7 @@ public class Task2 {
     {
         System.setProperty("webdriver.chrome.driver", libWithDriversLocation + "chromedriver_91.exe");
         driver = new ChromeDriver();
-        driver.get("https://kristinek.github.io/site/examples/loading_color");
+        driver.get("https://kristinek.github.io/site/tasks/provide_feedback");
         driver.manage().window().maximize();
     }
 
