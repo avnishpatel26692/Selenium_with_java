@@ -12,7 +12,7 @@ import org.openqa.selenium.chrome.ChromeDriver;
 import java.util.concurrent.TimeUnit;
 
 public class Sample3Task {
-    static String libWithDriversLocation = System.getProperty("user.dir") + "\\lib\\";
+    static String libWithDriversLocation = System.getProperty("user.dir") + "//lib//";
     WebDriver driver;
 
     @Before
