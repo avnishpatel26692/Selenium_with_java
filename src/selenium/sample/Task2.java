@@ -39,9 +39,9 @@ public class Task2 {
 @Test
 public void initialFeedbackPage() {
     Assert.assertTrue(GiveFeedback.getName().isEmpty());
-    Assert.assertTrue(GiveFeedback.getAge().isEmpty());
+    Assert.assertTrue(GiveFeedback.getAge().isEmpty());{
     for (int i = 0; i <= 3; i++)
-        Assert.assertFalse(GiveFeedback.getCheckboxes(i));
+        Assert.assertFalse(GiveFeedback.getCheckboxes(i));}
         Assert.assertTrue(GiveFeedback.getRadioButtons(2));
 Assert.assertEquals("Choose your option",GiveFeedback.getDropDowns(1));
         String backGroundColor = GiveFeedback.getSendBtn().getCssValue("background-color");

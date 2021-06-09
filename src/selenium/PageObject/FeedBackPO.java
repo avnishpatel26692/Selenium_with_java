@@ -30,7 +30,7 @@ public class FeedBackPO {
         Name.sendKeys(name);
     }
     public void enterComment(String name){
-        Comment.sendKeys();
+        Comment.sendKeys(name);
     }
     public String getName()
     {
