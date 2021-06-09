@@ -47,7 +47,7 @@ public class ActivityDayThreeFirstTaskOurActivity {
     @Test
     public void explicitWaitExampleGreenAndBlueLoaded() {
         WebDriverWait wait = new WebDriverWait(driver, 10);
-        wait.until(ExpectedConditions.visibilityOfAllElementsLocatedBy(By.id("start_green_and_blue")));
+        wait.until(ExpectedConditions.visibilityOfAllElementsLocatedBy(By.cssSelector("#start_green_and_blue")));
         WebElement startLoadingGreenBlueButton = driver.findElement(By.id("start_green_and_blue"));
         startLoadingGreenBlueButton.click();
 
