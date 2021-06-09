@@ -62,7 +62,7 @@ Assert.assertEquals("Choose your option",GiveFeedback.getDropDowns(1));
       String YesBtnBackground = FeedBack.getYesBtn().getCssValue("background-color");
       Assert.assertEquals  ("rgb(76, 175, 80)",YesBtnBackground);
         String NoBtnBackground = FeedBack.getNoBtn().getCssValue("background-color");
-        Assert.assertEquals  ("rgb(244, 67, 54)",YesBtnBackground);
+        Assert.assertEquals  ("rgb(244, 67, 54)",NoBtnBackground);
     }
 @Test
         public void feedbackPage(){
