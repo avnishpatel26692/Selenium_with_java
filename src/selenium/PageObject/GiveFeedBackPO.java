@@ -4,7 +4,6 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.How;
 
-import javax.xml.stream.events.Comment;
 import java.util.List;
 
 public class GiveFeedBackPO {
@@ -59,6 +58,7 @@ public class GiveFeedBackPO {
     public boolean getRadioButtons (int index) {
         return RadioButtons.get(index).isSelected();
     }
+
     public void DropDowns (int index) {
         DropDowns.get(index).click();
     }
@@ -68,6 +68,10 @@ public class GiveFeedBackPO {
         public void CommentTextField(String Comment){
             CommentTextField.sendKeys(Comment);
         }
+        public String getCommentTextField(){
+        return CommentTextField.getText();
+        }
+
         public void clickOnSendBtn()
         {
             SendBtn.click();
@@ -76,5 +80,4 @@ public class GiveFeedBackPO {
         return SendBtn;
         }
 
-
-}
+    }
