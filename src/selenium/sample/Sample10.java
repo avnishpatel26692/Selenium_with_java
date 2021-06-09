@@ -43,6 +43,7 @@ public class Sample10 {
         //implicit wait is maximum time it will wait for "driver.findElement()" method. if found earlier it continues
         driver.manage().timeouts().implicitlyWait(20, TimeUnit.SECONDS);
         WebElement msg = driver.findElement(By.xpath("//p[contains(text(),'dev magic')]"));
+        //WebElement msg = driver.findElement(By.xpath("//p[contains(text(),' magic')]"));
     }
 
     @Test
