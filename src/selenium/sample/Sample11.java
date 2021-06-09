@@ -31,6 +31,15 @@ public class Sample11 {
         wait.until(ExpectedConditions.visibilityOfAllElementsLocatedBy(By.xpath("//h2[@id='finish_green']")));
     }
 
+    @Test
+    public void waitTask2(){
+        WebDriverWait wait = new WebDriverWait(web,10);
+        wait.until(ExpectedConditions.visibilityOfAllElementsLocatedBy(By.xpath("//button[@id='start_green_and_blue']")));
+        WebElement button = web.findElement(By.xpath("//button[@id='start_green_and_blue']"));
+        button.click();
+        wait.until(ExpectedConditions.visibilityOfAllElementsLocatedBy(By.xpath("//h2[@id='finish_green_and_blue']")));
+    }
+
     @After
     public void afterMethod(){
         try {
