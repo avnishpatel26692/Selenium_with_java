@@ -10,7 +10,7 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
 
-public class Sample5Task {
+public class Sample5_alertBtn_popUp {
     static String libWithDriversLocation = System.getProperty("user.dir") + "/lib/";
     WebDriver driver;
 

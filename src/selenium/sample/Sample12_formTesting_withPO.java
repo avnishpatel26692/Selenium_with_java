@@ -10,7 +10,7 @@ import org.openqa.selenium.support.PageFactory;
 import selenium.pageObject.AgePagePO;
 import selenium.pageObject.AgeSubmittedPO;
 
-public class Sample12 {
+public class Sample12_formTesting_withPO {
     static String libWithDriversLocation = System.getProperty("user.dir") + "/lib/";
     WebDriver driver;
 

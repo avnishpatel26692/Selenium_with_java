@@ -8,7 +8,7 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
 
-public class Sample6 {
+public class Sample6_xPath_cssSelector {
 
     static String libWithDriversLocation = System.getProperty("user.dir") + "/lib/";
     WebDriver driver;

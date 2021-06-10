@@ -8,7 +8,7 @@ import org.openqa.selenium.chrome.ChromeDriver;
 
 import java.util.List;
 
-public class Sample2Task {
+public class Sample2_findElementBy {
     static String libWithDriversLocation = System.getProperty("user.dir") + "/lib/";
 
     @Test

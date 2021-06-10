@@ -9,7 +9,7 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
 
-public class Sample3 {
+public class Sample3_assertTrue_false_fail {
     static String libWithDriversLocation = System.getProperty("user.dir") + "/lib/";
     WebDriver driver;
 

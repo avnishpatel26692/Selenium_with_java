@@ -9,7 +9,7 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
 
-public class Sample4Task {
+public class Sample4_clickOnLink_btn_enterText {
     static String libWithDriversLocation = System.getProperty("user.dir") + "/lib/";
     WebDriver driver;
 

@@ -14,7 +14,7 @@ import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.List;
 
-public class Sample7 {
+public class Sample7_checkbox_radioBtn_dropdown_calendar {
 
     static String libWithDriversLocation = System.getProperty("user.dir") + "/lib/";
     WebDriver driver;

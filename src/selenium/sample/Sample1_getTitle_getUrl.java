@@ -4,7 +4,7 @@ import org.junit.Test;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 
-public class Sample1Task {
+public class Sample1_getTitle_getUrl {
 
     static String libWithDriversLocation = System.getProperty("user.dir") + "/lib/";
 
