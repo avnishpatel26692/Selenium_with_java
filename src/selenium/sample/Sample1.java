@@ -23,7 +23,6 @@ public class Sample1 {
 
         driver.manage().timeouts().implicitlyWait(25, TimeUnit.SECONDS);
         driver.manage().window().maximize();
-
         /*driver.findElement(By.xpath("//input[@aria-label = `Search`]")).sendKeys("some text");
         driver.findElement(By.xpath("//input[@type = `submit`]")).click();*/
 
