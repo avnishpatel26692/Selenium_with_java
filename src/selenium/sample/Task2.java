@@ -5,116 +5,129 @@ import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
 import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.support.PageFactory;
-import selenium.pageObject.AgePagePO;
-import selenium.pageObject.AgeSubmittedPO;
-import selenium.pageObject.GiveFeedBackPO;
-import selenium.pageObject.FeedBackPO;
-
-import java.util.List;
-import java.util.concurrent.TimeUnit;
+import pageObject.FeedBackPO;
+import pageObject.GiveFeedBackPO;
 
 public class Task2 {
+
     static String libWithDriversLocation = System.getProperty("user.dir") + "\\lib\\";
     WebDriver driver;
-    static GiveFeedBackPO giveFeedPage;
-    static FeedBackPO feedPage;
+    static GiveFeedBackPO giveFeedBackPO;
+    static FeedBackPO FeedBackPO;
+
 
     @Before
-    public void beforeMethod() {
+    public void beforeMethod()
+    {
         System.setProperty("webdriver.chrome.driver", libWithDriversLocation + "chromedriver_91.exe");
         driver = new ChromeDriver();
         driver.get("https://kristinek.github.io/site/tasks/provide_feedback");
         driver.manage().window().maximize();
-        giveFeedPage = PageFactory.initElements(driver, GiveFeedBackPO.class);
-        feedPage = PageFactory.initElements(driver, FeedBackPO.class);
+        giveFeedBackPO = PageFactory.initElements(driver,GiveFeedBackPO.class);
+        FeedBackPO = PageFactory.initElements(driver, FeedBackPO.class);
     }
 
     @After
     public void afterMethod() throws InterruptedException {
-        Thread.sleep(5000);
-
+        //Close browser
         driver.quit();
     }
 
+
     @Test
+    public void initialFeedbackPage()
+    {
+        //TODO:
+        //check that all field are empty and no tick are clicked
+        //"Don't know" is selected in "Genre"
+        //"Choose your option" in "How do you like us?"
+        //check that the button send is blue with white letters
 
-    public void scenario1() {
-        Assert.assertTrue(giveFeedPage.getName().isEmpty());
-        Assert.assertTrue(giveFeedPage.getAge().isEmpty());
-        for (int i = 0; i <= 3; i++) {
-            Assert.assertFalse(giveFeedPage.getLanguageCheckBoxStatus(i));
-        }
 
-        Assert.assertTrue(giveFeedPage.getRadioButtonStatus(2));
+        Assert.assertTrue(giveFeedBackPO.getNameValue().isEmpty());
+        Assert.assertTrue(giveFeedBackPO.getAgeValue().isEmpty());
 
-        Assert.assertEquals("Choose your option", giveFeedPage.getSelectedDropDownOption());
+        Assert.assertFalse(giveFeedBackPO.IsCheckbox());  // no checkboxes are selected
+        Assert.assertTrue(giveFeedBackPO.isRadioSelected(2));  // "Don't know"
 
-        String backGroundColor = giveFeedPage.sendButton().getCssValue("background-color");
-        Assert.assertEquals("rgba(33, 150, 243, 1)", backGroundColor);
+        Assert.assertEquals("Choose your option", giveFeedBackPO.getSelectedOption());// "Choose your option'
 
-        String letterColor = giveFeedPage.sendButton().getCssValue("color");
-        Assert.assertEquals("rgba(255, 255, 255, 1)", letterColor);
+        Assert.assertEquals("", giveFeedBackPO.getComment());// comment is empty
 
+
+        // compare background color
+        String backGroundColor = giveFeedBackPO.sendButton().getCssValue("background-color"); // get background color of the button
+        Assert.assertEquals("rgba(33, 150, 243, 1)",backGroundColor); // compare with blue
+
+        // compare text color
+        String textColor = giveFeedBackPO.sendButton().getCssValue("color"); // get text color (it should be white)
+        Assert.assertEquals("rgba(255, 255, 255, 1)",textColor); // compare with white
+
+    }
+
+
+    @Test
+    public void emptyFeedbackPage()
+    {
+        giveFeedBackPO.sendButton().click();
+        Assert.assertEquals("",FeedBackPO.getNameValue());
+        Assert.assertEquals("",FeedBackPO.getAgeValue());
+        Assert.assertEquals("",FeedBackPO.get2LangValue());
+        Assert.assertEquals("null",FeedBackPO.getGenderValue());
+        Assert.assertEquals("null",FeedBackPO.getOptionValue());
+        Assert.assertEquals("",FeedBackPO.getComment());
+
+        String backGroundColor = FeedBackPO.yesButton().getCssValue("background-color"); // get background color of the Yes button
+        Assert.assertEquals("rgba(76, 175, 80, 1)",backGroundColor); // compare with green
+
+        // compare text color
+        String textColor = FeedBackPO.yesButton().getCssValue("color"); // get text color (it should be white)
+        Assert.assertEquals("rgba(255, 255, 255, 1)",textColor); // compare with white
+
+        backGroundColor = FeedBackPO.noButton().getCssValue("background-color"); // get background color of the No button
+        Assert.assertEquals("rgba(244, 67, 54, 1)",backGroundColor); // compare with red
+
+
+
+        textColor = FeedBackPO.noButton().getCssValue("color"); // get text color (it should be white)
+        Assert.assertEquals("rgba(255, 255, 255, 1)",textColor); // compare with white
 
     }
 
     @Test
-    public void scenario2() {
-        giveFeedPage.sendButton().click();
-        Assert.assertTrue(feedPage.getYourName().isEmpty());
-        Assert.assertTrue(feedPage.getYourAge().isEmpty());
-        Assert.assertEquals("", feedPage.getYourLanguage());
-        Assert.assertEquals("null", feedPage.getYourGender());
-        Assert.assertEquals("null", feedPage.getYourOption());
-        Assert.assertEquals("", feedPage.getYourComment());
+    public void feedbackPage()
+    {
 
-        String yesBackGroundColor = feedPage.sendButtonYes().getCssValue("background-color");
-        Assert.assertEquals("rgba(76, 175, 80, 1)", yesBackGroundColor);
+        giveFeedBackPO.setNameValue("ABC");
+        giveFeedBackPO.setAgeValue("30");
+        giveFeedBackPO.selectCheckbox(0);  // english
+        giveFeedBackPO.selectRadioButton(0); //male
+        giveFeedBackPO.selectOption("Good");
+        giveFeedBackPO.setComment("comment");
+        giveFeedBackPO.sendButton().click();
 
-        String yesLetterColor = feedPage.sendButtonYes().getCssValue("color");
-        Assert.assertEquals("rgba(255, 255, 255, 1)", yesLetterColor);
+        Assert.assertEquals("ABC", FeedBackPO.getNameValue());
+        Assert.assertEquals("30", FeedBackPO.getAgeValue());
+        Assert.assertEquals("English", FeedBackPO.get2LangValue());
+        Assert.assertEquals("male", FeedBackPO.getGenderValue());
+        Assert.assertEquals("Good", FeedBackPO.getOptionValue());
+        Assert.assertEquals("comment", FeedBackPO.getComment());
 
-        String noBackGroundColor = feedPage.sendButtonNo().getCssValue("background-color");
-        Assert.assertEquals("rgba(244, 67, 54, 1)", noBackGroundColor);
-
-        String noLetterColor = feedPage.sendButtonNo().getCssValue("color");
-        Assert.assertEquals("rgba(255, 255, 255, 1)", noLetterColor);
+        String backGroundColor = FeedBackPO.yesButton().getCssValue("background-color"); // get background color of the button
+        Assert.assertEquals("rgba(76, 175, 80, 1)",backGroundColor); // compare with green
 
 
-    }
+        String textColor = FeedBackPO.yesButton().getCssValue("color"); // get text color (it should be white)
+        Assert.assertEquals("rgba(255, 255, 255, 1)",textColor); // compare with white
 
-    @Test
-    public void scenario3() {
-        String name = giveFeedPage.setName("Joshua");
-        String age = giveFeedPage.setAge("37");
-        giveFeedPage.selectCheckbox(0);
-        giveFeedPage.selectRadioButton(0);
-        giveFeedPage.selectDropdownOption("Good");
-        giveFeedPage.setComment("Per aspera ad astra");
-        giveFeedPage.sendButton().click();
-        Assert.assertEquals(name, feedPage.getYourName());
-        Assert.assertEquals(age, feedPage.getYourAge());
-        Assert.assertEquals("English", feedPage.getYourLanguage());
-        Assert.assertEquals("male", feedPage.getYourGender());
-        Assert.assertEquals("Good", feedPage.getYourOption());
-        Assert.assertEquals("Per aspera ad astra", feedPage.getYourComment());
+        backGroundColor = FeedBackPO.noButton().getCssValue("background-color"); // get background color of the button
+        Assert.assertEquals("rgba(244, 67, 54, 1)",backGroundColor); // compare with red
 
-        String yesBackGroundColor = feedPage.sendButtonYes().getCssValue("background-color");
-        Assert.assertEquals("rgba(76, 175, 80, 1)", yesBackGroundColor);
-
-        String yesLetterColor = feedPage.sendButtonYes().getCssValue("color");
-        Assert.assertEquals("rgba(255, 255, 255, 1)", yesLetterColor);
-
-        String noBackGroundColor = feedPage.sendButtonNo().getCssValue("background-color");
-        Assert.assertEquals("rgba(244, 67, 54, 1)", noBackGroundColor);
-
-        String noLetterColor = feedPage.sendButtonNo().getCssValue("color");
-        Assert.assertEquals("rgba(255, 255, 255, 1)", noLetterColor);
-
+        // compare text color
+        textColor = FeedBackPO.noButton().getCssValue("color"); // get text color (it should be white)
+        Assert.assertEquals("rgba(255, 255, 255, 1)",textColor); // compare with white
 
     }
-
-}
+    }
